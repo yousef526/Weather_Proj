@@ -1,0 +1,2 @@
+v1
+{"path":"file:///opt/airflow/dags/WeatherScripts/GeneratedData/2025-04-04%2012:31:36.890165.json/part-00000-562d974b-963e-40fb-8527-50aad01426cf-c000.snappy.parquet","size":19691,"isDir":false,"modificationTime":1743769900712,"blockReplication":1,"blockSize":33554432,"action":"add"}

@@ -1,0 +1,79 @@
+[2025-04-02T23:46:02.697+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-02T23:45:05.869177+00:00 [queued]>
+[2025-04-02T23:46:02.707+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-02T23:45:05.869177+00:00 [queued]>
+[2025-04-02T23:46:02.707+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T23:46:02.721+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-02 23:45:05.869177+00:00
+[2025-04-02T23:46:02.726+0000] {standard_task_runner.py:60} INFO - Started process 5425 to run task
+[2025-04-02T23:46:02.730+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'manual__2025-04-02T23:45:05.869177+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmprpz_o3ih']
+[2025-04-02T23:46:02.732+0000] {standard_task_runner.py:88} INFO - Job 56: Subtask Spark_Processing
+[2025-04-02T23:46:02.779+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-02T23:45:05.869177+00:00 [running]> on host 520607ad0646
+[2025-04-02T23:46:02.858+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T23:45:05.869177+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-02T23:45:05.869177+00:00'
+[2025-04-02T23:46:09.544+0000] {logging_mixin.py:188} INFO - root
+ |-- data: struct (nullable = true)
+ |    |-- base: string (nullable = true)
+ |    |-- clouds: struct (nullable = true)
+ |    |    |-- all: long (nullable = true)
+ |    |-- cod: long (nullable = true)
+ |    |-- coord: struct (nullable = true)
+ |    |    |-- lat: double (nullable = true)
+ |    |    |-- lon: double (nullable = true)
+ |    |-- dt: long (nullable = true)
+ |    |-- id: long (nullable = true)
+ |    |-- main: struct (nullable = true)
+ |    |    |-- feels_like: double (nullable = true)
+ |    |    |-- grnd_level: long (nullable = true)
+ |    |    |-- humidity: long (nullable = true)
+ |    |    |-- pressure: long (nullable = true)
+ |    |    |-- sea_level: long (nullable = true)
+ |    |    |-- temp: double (nullable = true)
+ |    |    |-- temp_max: double (nullable = true)
+ |    |    |-- temp_min: double (nullable = true)
+ |    |-- name: string (nullable = true)
+ |    |-- sys: struct (nullable = true)
+ |    |    |-- country: string (nullable = true)
+ |    |    |-- id: long (nullable = true)
+ |    |    |-- sunrise: long (nullable = true)
+ |    |    |-- sunset: long (nullable = true)
+ |    |    |-- type: long (nullable = true)
+ |    |-- timezone: long (nullable = true)
+ |    |-- visibility: long (nullable = true)
+ |    |-- weather: array (nullable = true)
+ |    |    |-- element: struct (containsNull = true)
+ |    |    |    |-- description: string (nullable = true)
+ |    |    |    |-- icon: string (nullable = true)
+ |    |    |    |-- id: long (nullable = true)
+ |    |    |    |-- main: string (nullable = true)
+ |    |-- wind: struct (nullable = true)
+ |    |    |-- deg: long (nullable = true)
+ |    |    |-- gust: double (nullable = true)
+ |    |    |-- speed: double (nullable = true)
+[2025-04-02T23:46:09.621+0000] {logging_mixin.py:188} INFO - root
+ |-- city_name: string (nullable = true)
+ |-- city_timezone: long (nullable = true)
+ |-- time_UTC: long (nullable = true)
+ |-- city_country: string (nullable = true)
+ |-- sunrise_time_UTC: long (nullable = true)
+ |-- sunset_time_UTC: long (nullable = true)
+ |-- weather_description: string (nullable = true)
+ |-- sea_level_Meter: long (nullable = true)
+ |-- temp_celisus: double (nullable = true)
+ |-- temp_min_celisus: double (nullable = true)
+ |-- temp_max_celisus: double (nullable = true)
+ |-- humidity_gram/m3: long (nullable = true)
+ |-- pressure_Pascal: long (nullable = true)
+ |-- latitude: double (nullable = true)
+ |-- longtiude: double (nullable = true)
+[2025-04-02T23:46:09.633+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/spark_Weather.py", line 114, in processData
+    .foreachBatch()\
+TypeError: DataStreamWriter.foreachBatch() missing 1 required positional argument: 'func'
+[2025-04-02T23:46:09.644+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250402T234505, start_date=20250402T234602, end_date=20250402T234609
+[2025-04-02T23:46:09.660+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 56 for task Spark_Processing (DataStreamWriter.foreachBatch() missing 1 required positional argument: 'func'; 5425)
+[2025-04-02T23:46:09.684+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-02T23:46:09.702+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

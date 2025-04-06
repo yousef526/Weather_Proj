@@ -1,0 +1,14 @@
+[2025-04-03T01:20:00.974+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-03T00:40:00+00:00 [queued]>
+[2025-04-03T01:20:00.981+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-03T00:40:00+00:00 [queued]>
+[2025-04-03T01:20:00.981+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-03T01:20:00.993+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Produce_data> on 2025-04-03 00:40:00+00:00
+[2025-04-03T01:20:00.998+0000] {standard_task_runner.py:60} INFO - Started process 15805 to run task
+[2025-04-03T01:20:01.002+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Produce_data', 'scheduled__2025-04-03T00:40:00+00:00', '--job-id', '142', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpn7o4y0a6']
+[2025-04-03T01:20:01.003+0000] {standard_task_runner.py:88} INFO - Job 142: Subtask Produce_data
+[2025-04-03T01:20:01.046+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-03T00:40:00+00:00 [running]> on host 520607ad0646
+[2025-04-03T01:20:01.118+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Produce_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-03T00:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-03T00:40:00+00:00'
+[2025-04-03T01:20:16.180+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-04-03T01:20:16.181+0000] {process_utils.py:131} INFO - Sending 15 to group 15805. PIDs of all processes in the group: [15805]
+[2025-04-03T01:20:16.181+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 15805
+[2025-04-03T01:20:16.182+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-04-03T01:20:16.208+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=15805, status='terminated', exitcode=0, started='01:20:00') (15805) terminated with exit code 0

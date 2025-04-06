@@ -1,0 +1,30 @@
+[2025-04-04T13:09:36.166+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-04T13:09:11.421928+00:00 [queued]>
+[2025-04-04T13:09:36.174+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-04T13:09:11.421928+00:00 [queued]>
+[2025-04-04T13:09:36.174+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-04T13:09:36.185+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-04 13:09:11.421928+00:00
+[2025-04-04T13:09:36.189+0000] {standard_task_runner.py:60} INFO - Started process 5343 to run task
+[2025-04-04T13:09:36.193+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'manual__2025-04-04T13:09:11.421928+00:00', '--job-id', '199', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpi8jvyh68']
+[2025-04-04T13:09:36.194+0000] {standard_task_runner.py:88} INFO - Job 199: Subtask Spark_Processing
+[2025-04-04T13:09:36.232+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-04T13:09:11.421928+00:00 [running]> on host 7fc40170f80d
+[2025-04-04T13:09:36.295+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-04T13:09:11.421928+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-04T13:09:11.421928+00:00'
+[2025-04-04T13:09:43.574+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/spark_Weather.py", line 93, in processData
+    query1.awaitTermination(30)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/sql/streaming/query.py", line 219, in awaitTermination
+    return self._jsq.awaitTermination(int(timeout * 1000))
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/errors/exceptions/captured.py", line 185, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.StreamingQueryException: [STREAM_FAILED] Query [id = 87171011-6729-4f26-93a6-ea0d4c47723a, runId = 558bcb16-0451-4825-bd96-388c4a71821d] terminated with exception: [UNSUPPORTED_DATA_TYPE_FOR_DATASOURCE] The CSV datasource doesn't support the column `data` of the type "ARRAY<STRUCT<base: STRING, clouds: STRUCT<all: BIGINT>, cod: BIGINT, coord: STRUCT<lat: DOUBLE, lon: DOUBLE>, dt: BIGINT, id: BIGINT, main: STRUCT<feels_like: DOUBLE, grnd_level: BIGINT, humidity: BIGINT, pressure: BIGINT, sea_level: BIGINT, temp: DOUBLE, temp_max: DOUBLE, temp_min: DOUBLE>, name: STRING, sys: STRUCT<country: STRING, id: BIGINT, sunrise: BIGINT, sunset: BIGINT, type: BIGINT>, timezone: BIGINT, visibility: BIGINT, weather: ARRAY<STRUCT<description: STRING, icon: STRING, id: BIGINT, main: STRING>>, wind: STRUCT<deg: BIGINT, gust: DOUBLE, speed: DOUBLE>>>".
+[2025-04-04T13:09:43.590+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250404T130911, start_date=20250404T130936, end_date=20250404T130943
+[2025-04-04T13:09:43.601+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 199 for task Spark_Processing ([STREAM_FAILED] Query [id = 87171011-6729-4f26-93a6-ea0d4c47723a, runId = 558bcb16-0451-4825-bd96-388c4a71821d] terminated with exception: [UNSUPPORTED_DATA_TYPE_FOR_DATASOURCE] The CSV datasource doesn't support the column `data` of the type "ARRAY<STRUCT<base: STRING, clouds: STRUCT<all: BIGINT>, cod: BIGINT, coord: STRUCT<lat: DOUBLE, lon: DOUBLE>, dt: BIGINT, id: BIGINT, main: STRUCT<feels_like: DOUBLE, grnd_level: BIGINT, humidity: BIGINT, pressure: BIGINT, sea_level: BIGINT, temp: DOUBLE, temp_max: DOUBLE, temp_min: DOUBLE>, name: STRING, sys: STRUCT<country: STRING, id: BIGINT, sunrise: BIGINT, sunset: BIGINT, type: BIGINT>, timezone: BIGINT, visibility: BIGINT, weather: ARRAY<STRUCT<description: STRING, icon: STRING, id: BIGINT, main: STRING>>, wind: STRUCT<deg: BIGINT, gust: DOUBLE, speed: DOUBLE>>>".; 5343)
+[2025-04-04T13:09:43.616+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-04T13:09:43.630+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

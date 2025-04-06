@@ -1,0 +1,78 @@
+[2025-04-04T12:58:41.788+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-04T12:58:19.341913+00:00 [queued]>
+[2025-04-04T12:58:41.797+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-04T12:58:19.341913+00:00 [queued]>
+[2025-04-04T12:58:41.797+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-04T12:58:41.812+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-04 12:58:19.341913+00:00
+[2025-04-04T12:58:41.818+0000] {standard_task_runner.py:60} INFO - Started process 4190 to run task
+[2025-04-04T12:58:41.822+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'manual__2025-04-04T12:58:19.341913+00:00', '--job-id', '190', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpm1ikajnv']
+[2025-04-04T12:58:41.823+0000] {standard_task_runner.py:88} INFO - Job 190: Subtask Spark_Processing
+[2025-04-04T12:58:41.867+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-04T12:58:19.341913+00:00 [running]> on host 7fc40170f80d
+[2025-04-04T12:58:41.935+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-04T12:58:19.341913+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-04T12:58:19.341913+00:00'
+[2025-04-04T12:59:18.194+0000] {logging_mixin.py:188} INFO - root
+ |-- data: struct (nullable = true)
+ |    |-- base: string (nullable = true)
+ |    |-- clouds: struct (nullable = true)
+ |    |    |-- all: long (nullable = true)
+ |    |-- cod: long (nullable = true)
+ |    |-- coord: struct (nullable = true)
+ |    |    |-- lat: double (nullable = true)
+ |    |    |-- lon: double (nullable = true)
+ |    |-- dt: long (nullable = true)
+ |    |-- id: long (nullable = true)
+ |    |-- main: struct (nullable = true)
+ |    |    |-- feels_like: double (nullable = true)
+ |    |    |-- grnd_level: long (nullable = true)
+ |    |    |-- humidity: long (nullable = true)
+ |    |    |-- pressure: long (nullable = true)
+ |    |    |-- sea_level: long (nullable = true)
+ |    |    |-- temp: double (nullable = true)
+ |    |    |-- temp_max: double (nullable = true)
+ |    |    |-- temp_min: double (nullable = true)
+ |    |-- name: string (nullable = true)
+ |    |-- sys: struct (nullable = true)
+ |    |    |-- country: string (nullable = true)
+ |    |    |-- id: long (nullable = true)
+ |    |    |-- sunrise: long (nullable = true)
+ |    |    |-- sunset: long (nullable = true)
+ |    |    |-- type: long (nullable = true)
+ |    |-- timezone: long (nullable = true)
+ |    |-- visibility: long (nullable = true)
+ |    |-- weather: array (nullable = true)
+ |    |    |-- element: struct (containsNull = true)
+ |    |    |    |-- description: string (nullable = true)
+ |    |    |    |-- icon: string (nullable = true)
+ |    |    |    |-- id: long (nullable = true)
+ |    |    |    |-- main: string (nullable = true)
+ |    |-- wind: struct (nullable = true)
+ |    |    |-- deg: long (nullable = true)
+ |    |    |-- gust: double (nullable = true)
+ |    |    |-- speed: double (nullable = true)
+[2025-04-04T12:59:18.273+0000] {logging_mixin.py:188} INFO - root
+ |-- city_name: string (nullable = true)
+ |-- city_timezone: long (nullable = true)
+ |-- time_utc: long (nullable = true)
+ |-- city_country: string (nullable = true)
+ |-- sunrise_time_utc: long (nullable = true)
+ |-- sunset_time_utc: long (nullable = true)
+ |-- sea_level_meter: long (nullable = true)
+ |-- temp_celisus: double (nullable = true)
+ |-- temp_min_celisus: double (nullable = true)
+ |-- temp_max_celisus: double (nullable = true)
+ |-- humidity_gram_m3: long (nullable = true)
+ |-- pressure_pascal: long (nullable = true)
+ |-- latitude: double (nullable = true)
+ |-- longtiude: double (nullable = true)
+ |-- weather_description: string (nullable = true)
+[2025-04-04T12:59:18.280+0000] {java_gateway.py:2273} INFO - Callback Server Starting
+[2025-04-04T12:59:18.281+0000] {java_gateway.py:2275} INFO - Socket listening on ('127.0.0.1', 39177)
+[2025-04-04T12:59:19.368+0000] {clientserver.py:561} INFO - Python Server ready to receive messages
+[2025-04-04T12:59:19.369+0000] {clientserver.py:575} INFO - Received command c on object id p0
+[2025-04-04T12:59:19.372+0000] {logging_mixin.py:188} INFO - Stuck here2 with batch id10
+[2025-04-04T12:59:20.088+0000] {logging_mixin.py:188} INFO - +---------+-------------+--------+------------+----------------+---------------+---------------+------------+----------------+----------------+----------------+---------------+--------+---------+-------------------+
+|city_name|city_timezone|time_utc|city_country|sunrise_time_utc|sunset_time_utc|sea_level_meter|temp_celisus|temp_min_celisus|temp_max_celisus|humidity_gram_m3|pressure_pascal|latitude|longtiude|weather_description|
++---------+-------------+--------+------------+----------------+---------------+---------------+------------+----------------+----------------+----------------+---------------+--------+---------+-------------------+
++---------+-------------+--------+------------+----------------+---------------+---------------+------------+----------------+----------------+----------------+---------------+--------+---------+-------------------+
+[2025-04-04T12:59:20.662+0000] {logging_mixin.py:188} INFO - ⚠️ No data in batch 2025-04-04 12:59:20.662788
+[2025-04-04T13:00:18.329+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-04-04T13:00:18.342+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250404T125819, start_date=20250404T125841, end_date=20250404T130018
+[2025-04-04T13:00:18.374+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-04-04T13:00:18.388+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

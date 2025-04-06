@@ -1,0 +1,17 @@
+[2025-04-02T23:37:36.951+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Create_Cassandra_schema manual__2025-04-02T23:37:14.495992+00:00 [queued]>
+[2025-04-02T23:37:36.959+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Create_Cassandra_schema manual__2025-04-02T23:37:14.495992+00:00 [queued]>
+[2025-04-02T23:37:36.960+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T23:37:36.972+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Create_Cassandra_schema> on 2025-04-02 23:37:14.495992+00:00
+[2025-04-02T23:37:36.977+0000] {standard_task_runner.py:60} INFO - Started process 4915 to run task
+[2025-04-02T23:37:36.980+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Create_Cassandra_schema', 'manual__2025-04-02T23:37:14.495992+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpibn0z_9t']
+[2025-04-02T23:37:36.981+0000] {standard_task_runner.py:88} INFO - Job 50: Subtask Create_Cassandra_schema
+[2025-04-02T23:37:37.023+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Create_Cassandra_schema manual__2025-04-02T23:37:14.495992+00:00 [running]> on host 520607ad0646
+[2025-04-02T23:37:37.095+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Create_Cassandra_schema' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T23:37:14.495992+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-02T23:37:14.495992+00:00'
+[2025-04-02T23:37:37.097+0000] {cassandra_creator.py:4} WARNING - Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['cassandra'], lbp = None)
+[2025-04-02T23:37:37.100+0000] {cassandra_creator.py:5} WARNING - Downgrading core protocol version from 66 to 65 for 172.18.0.4:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2025-04-02T23:37:37.102+0000] {cassandra_creator.py:5} WARNING - Downgrading core protocol version from 65 to 5 for 172.18.0.4:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2025-04-02T23:37:37.112+0000] {policies.py:289} INFO - Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '172.18.0.4:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2025-04-02T23:37:37.146+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-04-02T23:37:37.157+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=Weather_Proj, task_id=Create_Cassandra_schema, execution_date=20250402T233714, start_date=20250402T233736, end_date=20250402T233737
+[2025-04-02T23:37:37.192+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-04-02T23:37:37.212+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

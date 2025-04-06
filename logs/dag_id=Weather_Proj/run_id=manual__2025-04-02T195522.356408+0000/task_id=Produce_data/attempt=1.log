@@ -1,0 +1,25 @@
+[2025-04-02T19:55:27.554+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data manual__2025-04-02T19:55:22.356408+00:00 [queued]>
+[2025-04-02T19:55:27.562+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data manual__2025-04-02T19:55:22.356408+00:00 [queued]>
+[2025-04-02T19:55:27.562+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T19:55:27.575+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Produce_data> on 2025-04-02 19:55:22.356408+00:00
+[2025-04-02T19:55:27.579+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2025-04-02T19:55:27.579+0000] {standard_task_runner.py:60} INFO - Started process 2792 to run task
+[2025-04-02T19:55:27.585+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Produce_data', 'manual__2025-04-02T19:55:22.356408+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpjvciampm']
+[2025-04-02T19:55:27.585+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask Produce_data
+[2025-04-02T19:55:27.632+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Produce_data manual__2025-04-02T19:55:22.356408+00:00 [running]> on host 12651c21963e
+[2025-04-02T19:55:27.701+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Produce_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T19:55:22.356408+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-02T19:55:22.356408+00:00'
+[2025-04-02T19:55:27.702+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/API_Call.py", line 11, in apiCall
+    "q": f"{city},{country}",
+UnboundLocalError: local variable 'city' referenced before assignment
+[2025-04-02T19:55:27.713+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Produce_data, execution_date=20250402T195522, start_date=20250402T195527, end_date=20250402T195527
+[2025-04-02T19:55:27.723+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task Produce_data (local variable 'city' referenced before assignment; 2792)
+[2025-04-02T19:55:27.755+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-02T19:55:27.784+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

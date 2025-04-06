@@ -1,0 +1,91 @@
+[2025-04-02T22:00:59.287+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [queued]>
+[2025-04-02T22:00:59.295+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [queued]>
+[2025-04-02T22:00:59.296+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T22:00:59.309+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-02 21:20:00+00:00
+[2025-04-02T22:00:59.314+0000] {standard_task_runner.py:60} INFO - Started process 6724 to run task
+[2025-04-02T22:00:59.314+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2025-04-02T22:00:59.319+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'scheduled__2025-04-02T21:20:00+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpwb8ryjdo']
+[2025-04-02T22:00:59.320+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask Spark_Processing
+[2025-04-02T22:00:59.364+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [running]> on host f47524c1cda8
+[2025-04-02T22:00:59.431+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T21:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-02T21:20:00+00:00'
+[2025-04-02T22:01:00.409+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/spark_Weather.py", line 76, in processData
+    .load()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/sql/streaming/readwriter.py", line 304, in load
+    return self._df(self._jreader.load())
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/errors/exceptions/captured.py", line 185, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.AnalysisException: Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.
+[2025-04-02T22:01:00.428+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250402T212000, start_date=20250402T220059, end_date=20250402T220100
+[2025-04-02T22:01:00.441+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 24 for task Spark_Processing (Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.; 6724)
+[2025-04-02T22:01:00.492+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-02T22:01:00.510+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-02T22:13:27.055+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [queued]>
+[2025-04-02T22:13:27.065+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [queued]>
+[2025-04-02T22:13:27.065+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T22:13:27.078+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-02 21:20:00+00:00
+[2025-04-02T22:13:27.082+0000] {standard_task_runner.py:60} INFO - Started process 7561 to run task
+[2025-04-02T22:13:27.086+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'scheduled__2025-04-02T21:20:00+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmp4bt41sh6']
+[2025-04-02T22:13:27.087+0000] {standard_task_runner.py:88} INFO - Job 37: Subtask Spark_Processing
+[2025-04-02T22:13:27.130+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [running]> on host f47524c1cda8
+[2025-04-02T22:13:27.194+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T21:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-02T21:20:00+00:00'
+[2025-04-02T22:13:32.439+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/spark_Weather.py", line 75, in processData
+    .load()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/sql/streaming/readwriter.py", line 304, in load
+    return self._df(self._jreader.load())
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/errors/exceptions/captured.py", line 185, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.AnalysisException: Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.
+[2025-04-02T22:13:32.458+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250402T212000, start_date=20250402T221327, end_date=20250402T221332
+[2025-04-02T22:13:32.471+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 37 for task Spark_Processing (Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.; 7561)
+[2025-04-02T22:13:32.512+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-02T22:13:32.530+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-02T22:36:23.128+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [queued]>
+[2025-04-02T22:36:23.138+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [queued]>
+[2025-04-02T22:36:23.139+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T22:36:23.150+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-02 21:20:00+00:00
+[2025-04-02T22:36:23.159+0000] {standard_task_runner.py:60} INFO - Started process 319 to run task
+[2025-04-02T22:36:23.162+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'scheduled__2025-04-02T21:20:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpm12ef5nm']
+[2025-04-02T22:36:23.163+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask Spark_Processing
+[2025-04-02T22:36:23.206+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing scheduled__2025-04-02T21:20:00+00:00 [running]> on host 520607ad0646
+[2025-04-02T22:36:23.268+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T21:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-02T21:20:00+00:00'
+[2025-04-02T22:37:13.573+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/spark_Weather.py", line 75, in processData
+    .load()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/sql/streaming/readwriter.py", line 304, in load
+    return self._df(self._jreader.load())
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/errors/exceptions/captured.py", line 185, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.AnalysisException: Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.
+[2025-04-02T22:37:13.592+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250402T212000, start_date=20250402T223623, end_date=20250402T223713
+[2025-04-02T22:37:13.614+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 5 for task Spark_Processing (Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.; 319)
+[2025-04-02T22:37:13.649+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-02T22:37:13.664+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

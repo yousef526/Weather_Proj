@@ -1,0 +1,30 @@
+[2025-04-02T21:46:17.997+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-02T20:40:00+00:00 [queued]>
+[2025-04-02T21:46:18.006+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-02T20:40:00+00:00 [queued]>
+[2025-04-02T21:46:18.007+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T21:46:18.021+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Produce_data> on 2025-04-02 20:40:00+00:00
+[2025-04-02T21:46:18.027+0000] {standard_task_runner.py:60} INFO - Started process 483 to run task
+[2025-04-02T21:46:18.027+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2025-04-02T21:46:18.033+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Produce_data', 'scheduled__2025-04-02T20:40:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpa0cayg37']
+[2025-04-02T21:46:18.034+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask Produce_data
+[2025-04-02T21:46:18.103+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-02T20:40:00+00:00 [running]> on host f47524c1cda8
+[2025-04-02T21:46:18.187+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Produce_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-02T20:40:00+00:00'
+[2025-04-02T21:47:04.269+0000] {logging_mixin.py:188} INFO - Data successfully written to 'data.json'.
+[2025-04-02T21:47:04.271+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-04-02T21:47:04.280+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=Weather_Proj, task_id=Produce_data, execution_date=20250402T204000, start_date=20250402T214617, end_date=20250402T214704
+[2025-04-02T21:47:04.322+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-04-02T21:47:04.346+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-02T21:57:19.425+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-02T20:40:00+00:00 [queued]>
+[2025-04-02T21:57:19.432+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-02T20:40:00+00:00 [queued]>
+[2025-04-02T21:57:19.432+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T21:57:19.444+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Produce_data> on 2025-04-02 20:40:00+00:00
+[2025-04-02T21:57:19.448+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2025-04-02T21:57:19.448+0000] {standard_task_runner.py:60} INFO - Started process 4504 to run task
+[2025-04-02T21:57:19.454+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Produce_data', 'scheduled__2025-04-02T20:40:00+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpa7cdc82t']
+[2025-04-02T21:57:19.455+0000] {standard_task_runner.py:88} INFO - Job 16: Subtask Produce_data
+[2025-04-02T21:57:19.497+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Produce_data scheduled__2025-04-02T20:40:00+00:00 [running]> on host f47524c1cda8
+[2025-04-02T21:57:19.560+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Produce_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-02T20:40:00+00:00'
+[2025-04-02T21:58:29.229+0000] {logging_mixin.py:188} INFO - Data successfully written to 'data.json'.
+[2025-04-02T21:58:29.231+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-04-02T21:58:29.242+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=Weather_Proj, task_id=Produce_data, execution_date=20250402T204000, start_date=20250402T215719, end_date=20250402T215829
+[2025-04-02T21:58:29.299+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-04-02T21:58:29.322+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

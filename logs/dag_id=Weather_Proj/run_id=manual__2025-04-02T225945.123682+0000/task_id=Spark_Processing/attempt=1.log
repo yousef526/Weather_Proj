@@ -1,0 +1,122 @@
+[2025-04-02T23:00:09.185+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-02T22:59:45.123682+00:00 [queued]>
+[2025-04-02T23:00:09.192+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-02T22:59:45.123682+00:00 [queued]>
+[2025-04-02T23:00:09.193+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-04-02T23:00:09.205+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): Spark_Processing> on 2025-04-02 22:59:45.123682+00:00
+[2025-04-02T23:00:09.209+0000] {standard_task_runner.py:60} INFO - Started process 2021 to run task
+[2025-04-02T23:00:09.213+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Weather_Proj', 'Spark_Processing', 'manual__2025-04-02T22:59:45.123682+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/Project_tasks.py', '--cfg-path', '/tmp/tmpqzkz1bsj']
+[2025-04-02T23:00:09.215+0000] {standard_task_runner.py:88} INFO - Job 25: Subtask Spark_Processing
+[2025-04-02T23:00:09.255+0000] {task_command.py:423} INFO - Running <TaskInstance: Weather_Proj.Spark_Processing manual__2025-04-02T22:59:45.123682+00:00 [running]> on host 520607ad0646
+[2025-04-02T23:00:09.326+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Weather_Proj' AIRFLOW_CTX_TASK_ID='Spark_Processing' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T22:59:45.123682+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-02T22:59:45.123682+00:00'
+[2025-04-02T23:00:15.244+0000] {logging_mixin.py:188} INFO - root
+ |-- data: struct (nullable = true)
+ |    |-- base: string (nullable = true)
+ |    |-- clouds: struct (nullable = true)
+ |    |    |-- all: long (nullable = true)
+ |    |-- cod: long (nullable = true)
+ |    |-- coord: struct (nullable = true)
+ |    |    |-- lat: double (nullable = true)
+ |    |    |-- lon: double (nullable = true)
+ |    |-- dt: long (nullable = true)
+ |    |-- id: long (nullable = true)
+ |    |-- main: struct (nullable = true)
+ |    |    |-- feels_like: double (nullable = true)
+ |    |    |-- grnd_level: long (nullable = true)
+ |    |    |-- humidity: long (nullable = true)
+ |    |    |-- pressure: long (nullable = true)
+ |    |    |-- sea_level: long (nullable = true)
+ |    |    |-- temp: double (nullable = true)
+ |    |    |-- temp_max: double (nullable = true)
+ |    |    |-- temp_min: double (nullable = true)
+ |    |-- name: string (nullable = true)
+ |    |-- sys: struct (nullable = true)
+ |    |    |-- country: string (nullable = true)
+ |    |    |-- id: long (nullable = true)
+ |    |    |-- sunrise: long (nullable = true)
+ |    |    |-- sunset: long (nullable = true)
+ |    |    |-- type: long (nullable = true)
+ |    |-- timezone: long (nullable = true)
+ |    |-- visibility: long (nullable = true)
+ |    |-- weather: array (nullable = true)
+ |    |    |-- element: struct (containsNull = true)
+ |    |    |    |-- description: string (nullable = true)
+ |    |    |    |-- icon: string (nullable = true)
+ |    |    |    |-- id: long (nullable = true)
+ |    |    |    |-- main: string (nullable = true)
+ |    |-- wind: struct (nullable = true)
+ |    |    |-- deg: long (nullable = true)
+ |    |    |-- gust: double (nullable = true)
+ |    |    |-- speed: double (nullable = true)
+[2025-04-02T23:00:15.313+0000] {logging_mixin.py:188} INFO - root
+ |-- city_name: string (nullable = true)
+ |-- city_timezone: long (nullable = true)
+ |-- time_UTC: long (nullable = true)
+ |-- city_country: string (nullable = true)
+ |-- sunrise_time_UTC: long (nullable = true)
+ |-- sunset_time_UTC: long (nullable = true)
+ |-- weather_description: string (nullable = true)
+ |-- sea_level_Meter: long (nullable = true)
+ |-- temp_celisus: double (nullable = true)
+ |-- temp_min_celisus: double (nullable = true)
+ |-- temp_max_celisus: double (nullable = true)
+ |-- humidity_gram/m3: long (nullable = true)
+ |-- pressure_Pascal: long (nullable = true)
+ |-- latitude: double (nullable = true)
+ |-- longtiude: double (nullable = true)
+[2025-04-02T23:00:15.330+0000] {java_gateway.py:2273} INFO - Callback Server Starting
+[2025-04-02T23:00:15.331+0000] {java_gateway.py:2275} INFO - Socket listening on ('127.0.0.1', 37485)
+[2025-04-02T23:03:51.588+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-04-02T23:03:51.590+0000] {process_utils.py:131} INFO - Sending 15 to group 2021. PIDs of all processes in the group: [2022, 2021]
+[2025-04-02T23:03:51.590+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 2021
+[2025-04-02T23:03:51.591+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-04-02T23:03:51.591+0000] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/usr/local/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-04-02T23:03:51.593+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2025-04-02T23:03:51.594+0000] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/usr/local/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2025-04-02T23:03:51.595+0000] {clientserver.py:543} INFO - Closing down clientserver connection
+[2025-04-02T23:03:51.596+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/WeatherScripts/spark_Weather.py", line 124, in processData
+    query.awaitTermination()
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/sql/streaming/query.py", line 221, in awaitTermination
+    return self._jsq.awaitTermination()
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "/home/airflow/.local/lib/python3.10/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o92.awaitTermination
+[2025-04-02T23:03:51.608+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=Weather_Proj, task_id=Spark_Processing, execution_date=20250402T225945, start_date=20250402T230009, end_date=20250402T230351
+[2025-04-02T23:03:51.622+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 25 for task Spark_Processing (An error occurred while calling o92.awaitTermination; 2021)
+[2025-04-02T23:03:51.643+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=2021, status='terminated', exitcode=1, started='23:00:08') (2021) terminated with exit code 1
+[2025-04-02T23:03:52.016+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=2022, status='terminated', started='23:00:08') (2022) terminated with exit code None
