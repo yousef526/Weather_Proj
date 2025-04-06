@@ -3,7 +3,7 @@ import json
 
 # API credentials
 def apiCall():
-    api_key = "e6af95748c4e865b15b05a5f3014e14d"
+    api_key = "YOUR_API_HERE"
     country = "EG"
     untis = "metric"
 
